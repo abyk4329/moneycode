@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>תשלום / בחינה</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#fffaf2;color:#1f1e1e}
+    .box{background:white;padding:24px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.06);text-align:center}
+    button{padding:12px 18px;border-radius:10px;border:0;background:#D4AF37;color:#111;font-weight:700;cursor:pointer}
+    a{display:block;margin-top:12px;color:#555}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img src="LOGO1.png" alt="לוגו" style="width:72px;height:72px;display:block;margin:0 auto 12px;border-radius:10px;object-fit:cover">
+    <h1>עמוד תשלום לדוגמה</h1>
+    <p>לחצי על הכפתור כדי לדמות תשלום של ₪5. לאחריו תחזרי לעמוד הקודם עם הרשאת פירושים.</p>
+    <button id="pay">בצע תשלום (דמה)</button>
+    <a id="cancel" href="#">ביטול וחזרה</a>
+  </div>
+
+  <script>
+    function getQuery(name){
+      return new URLSearchParams(location.search).get(name);
+    }
+    const ret = getQuery('return') || '/index.html';
+    const btn = document.getElementById('pay');
+    const cancel = document.getElementById('cancel');
+    btn.addEventListener('click', ()=>{
+      // simulate payment processing delay
+      btn.disabled = true; btn.textContent = 'מעבד...';
+      setTimeout(()=>{
+        // redirect back with paid=1
+        const retUrl = decodeURIComponent(ret);
+        const sep = retUrl.includes('?') ? '&' : '?';
+        window.location.href = retUrl + sep + 'paid=1';
+      }, 1200);
+    });
+    cancel.addEventListener('click',(e)=>{ e.preventDefault(); window.history.back(); });
+  </script>
+</body>
+</html>

@@ -11,6 +11,17 @@
       "sizes": "64x64",
       "type": "image/svg+xml"
     }
+    ,
+    {
+      "src": "LOGO1.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "LOGO1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
   ],
   "lang": "he-IL"
 }
