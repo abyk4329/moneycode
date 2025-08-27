@@ -474,6 +474,52 @@
 			text-align: center;
 		}
 
+		.number-button {
+			display: inline-block;
+			padding: 12px 16px;
+			margin: 0 6px;
+			background: linear-gradient(135deg, var(--feather-white), var(--porcelain-mist));
+			border: 3px solid var(--gold-light);
+			border-radius: 15px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			box-shadow: 0 6px 15px rgba(164, 141, 120, 0.2);
+			font-weight: 800;
+			color: var(--desert-rock);
+			font-size: inherit;
+			font-family: inherit;
+			letter-spacing: inherit;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.number-button::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.3), transparent);
+			transition: left 0.5s ease;
+		}
+
+		.number-button:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 10px 25px rgba(164, 141, 120, 0.3);
+			border-color: var(--warm-gold);
+			background: linear-gradient(135deg, var(--porcelain-mist), var(--feather-white));
+		}
+
+		.number-button:hover::before {
+			left: 100%;
+		}
+
+		.number-button:active {
+			transform: translateY(-1px);
+			box-shadow: 0 4px 12px rgba(164, 141, 120, 0.4);
+		}
+
 		.error-banner {
 			display: none;
 			padding: 16px;
@@ -519,6 +565,34 @@
 			color: var(--muted);
 			font-size: 1rem;
 			font-style: italic;
+		}
+
+		.instructions {
+			background: linear-gradient(135deg, var(--gold-light), var(--warm-gold));
+			color: white;
+			padding: 15px 20px;
+			border-radius: 15px;
+			margin: 20px 0;
+			text-align: center;
+			font-size: 1.1rem;
+			box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+			animation: instructionPulse 3s ease-in-out infinite;
+		}
+
+		.instruction-icon {
+			font-size: 1.3rem;
+			margin-left: 8px;
+		}
+
+		@keyframes instructionPulse {
+			0%, 100% { 
+				transform: scale(1);
+				box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+			}
+			50% { 
+				transform: scale(1.02);
+				box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+			}
 		}
 
 		.number-interpretation {
@@ -737,23 +811,49 @@
 					<div class="interpretations-header">
 						<h3>🔮 הפירוש המלא של קוד הכסף שלכם</h3>
 						<p class="interpretations-intro">זוהי הדרכה מעמיקה ומותאמת אישית על פי הקוד הנומרולוגי שלכם</p>
+						<div class="instructions">
+							<span class="instruction-icon">💡</span>
+							<strong>לחצו על כל מספר בקוד שלכם למעלה</strong> כדי לקבל פירוש מפורט ואישי!
+						</div>
 					</div>
 
 					<div class="number-interpretation" data-number="1">
 						<div class="number-header">
 							<span class="number-icon">👑</span>
-							<h4>מספר 1 – המנהיג הפיננסי</h4>
+							<h4>מספר 1 - המנהיג הטבעי</h4>
 						</div>
-						<div class="interpretation-content">
+						<div class="number-content">
+							<div class="main-description">
+								<p><strong>הכישרון הייחודי שלכם:</strong> מנהיגות טבעית ויכולת להוביל אחרים. אתם נולדתם להיות בעמדות מובילות ולקחת אחריות על תוצאות גדולות.</p>
+							</div>
 							<div class="strengths-section">
 								<h5>💎 החוזקות והמתנות שלכם:</h5>
-								<p>אתם נולדתם להוביל! מספר 1 מעניק לכם כשרון טבעי למנהיגות בתחומי הקריירה והכספים. עם ניהול נבון והשקעות מחושבות, אתם יכולים לשגשג כלכלית בצורה יוצאת דופן.</p>
-								<p>יש לכם חשיבה מקורית ונכונות לנסות דרכים חדשות להרוויח כסף – תכונה שפותחת הזדמנויות כלכליות חדשניות. כשאתם בטוחים בעצמכם, המזל נוטה לצדכם ומסייע להגדיל את הונכם.</p>
+								<ul>
+									<li><strong>מנהיגות מולדת</strong> - יכולת טבעית להוביל צוותים ולקחת החלטות אחראיות</li>
+									<li><strong>חזון עסקי</strong> - אתם רואים הזדמנויות שאחרים מפספסים</li>
+									<li><strong>עצמאות כלכלית</strong> - נטייה טבעית ליצור מקורות הכנסה עצמאיים</li>
+									<li><strong>כושר פעולה</strong> - יכולת לממש רעיונות ולהפוך אותם למציאות</li>
+								</ul>
+								<p><em>דוגמה:</em> יזמים מצליחים, מנכ"לים ומנהלים בכירים רבים נושאים את האנרגיה של 1.</p>
 							</div>
 							<div class="challenges-section">
-								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
-								<p>היזהרו מסיכונים פיננסיים מיותרים ומהוצאות פזיזות. הביטחון הגבוה שלכם עלול להוביל לאימפולסיביות והשקעות מסוכנות.</p>
-								<p><strong>הטיפ הזהב:</strong> טפחו משמעת כלכלית – חסכו, השקיעו בחכמה והימנעו מ"התעשרות מהירה" כמו הימורים. עם שליטה עצמית וענווה, תגיעו לשפע כלכלי רב!</p>
+								<h5>⚠️ האתגרים שעליכם להתגבר עליהם:</h5>
+								<ul>
+									<li><strong>פחד מאחריות</strong> - נטייה לברוח מתפקידי מנהיגות בגלל החשש מכישלון</li>
+									<li><strong>קושי במיקור חוץ</strong> - נטייה לעשות הכל לבד במקום להאמין באחרים</li>
+									<li><strong>בדידות מקצועית</strong> - קושי להיות לבד עם החלטות קשות</li>
+									<li><strong>אימפטיינס</strong> - רצון לתוצאות מיידיות במקום בניית יסודות איתנים</li>
+								</ul>
+								<p><strong>המפתח להצלחה:</strong> למדו לקחת אחריות מדורגת, התחילו מצוותים קטנים ועברו לאחריות גדולה יותר.</p>
+							</div>
+							<div class="action-steps">
+								<h5>🎯 צעדים מעשיים להצלחה כספית:</h5>
+								<ol>
+									<li>חפשו תפקידי ניהול או פתחו עסק עצמאי</li>
+									<li>תרגלו זמן איכות עם עצמכם לבהירות החלטות</li>
+									<li>למדו לאמן על אחרים במקום לעשות הכל לבד</li>
+									<li>הגדירו יעדים כלכליים ברורים וקחו אחריות על השגתם</li>
+								</ol>
 							</div>
 						</div>
 					</div>
@@ -951,7 +1051,35 @@
 
 		function showOutput(d, m, y, total) {
 			clearError();
-			out.innerHTML = `קוד הכסף שלכם הוא: <span class="code-ltr">${d} ${m} ${y} ${total}</span>`;
+			const params = new URLSearchParams(window.location.search);
+			const isPaid = params.get('paid') === '1';
+			
+			if (isPaid) {
+				// Show clickable numbers for paid users
+				out.innerHTML = `קוד הכסף שלכם הוא: <span class="code-ltr">
+					<span class="number-button" data-number="${d}" title="לחצו לפירוש מפורט">${d}</span> 
+					<span class="number-button" data-number="${m}" title="לחצו לפירוש מפורט">${m}</span> 
+					<span class="number-button" data-number="${y}" title="לחצו לפירוש מפורט">${y}</span> 
+					<span class="number-button" data-number="${total}" title="לחצו לפירוש מפורט">${total}</span>
+				</span>`;
+				
+				// Add click handlers to number buttons
+				document.querySelectorAll('.number-button').forEach(btn => {
+					btn.addEventListener('click', () => {
+						const number = btn.getAttribute('data-number');
+						showNumberInterpretation(parseInt(number));
+						
+						// Scroll to interpretations section
+						document.getElementById('interpretations').scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+					});
+				});
+			} else {
+				// Show regular numbers for non-paid users
+				out.innerHTML = `קוד הכסף שלכם הוא: <span class="code-ltr">${d} ${m} ${y} ${total}</span>`;
+			}
 			out.style.display = 'block';
 		}
 
@@ -1005,6 +1133,7 @@
 
 			// Store the result for later use
 			sessionStorage.setItem('numerologyResult', total.toString());
+			sessionStorage.setItem('numerologyOutput', document.getElementById('output').innerHTML);
 
 			// Show enhanced payment section with animation
 			const payBtn = document.getElementById('paylink');
@@ -1066,6 +1195,14 @@
 			const storedResult = sessionStorage.getItem('numerologyResult');
 			if (storedResult) {
 				showNumberInterpretation(parseInt(storedResult));
+				
+				// Also restore the calculation result display
+				const storedOutput = sessionStorage.getItem('numerologyOutput');
+				if (storedOutput) {
+					document.getElementById('output').innerHTML = storedOutput;
+					document.getElementById('output').style.display = 'block';
+					document.getElementById('payment-section').style.display = 'none';
+				}
 			}
 		}
 
