@@ -1,0 +1,16 @@
+{
+  "name": "מחשבון קוד הכסף",
+  "short_name": "money_code",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FFF7E6",
+  "theme_color": "#FFF7E6",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='26' fill='%23D4AF37'/></svg>",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ],
+  "lang": "he-IL"
+}

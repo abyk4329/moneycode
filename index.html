@@ -1,0 +1,210 @@
+
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+			<meta name="apple-mobile-web-app-capable" content="yes">
+			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+			<meta name="theme-color" content="#FFF7E6">
+			<title>money_code</title>
+			<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+		<meta name="description" content="גלי את קוד הכסף האישי שלך על פי תאריך הלידה – מחשבון נומרולוגי בעברית, חינמי ואלגנטי.">
+		<meta name="keywords" content="קוד הכסף, נומרולוגיה, מחשבון נומרולוגי, כסף, שפע, קוד אישי">
+		<meta property="og:title" content="מחשבון קוד הכסף">
+		<meta property="og:description" content="גלי את קוד הכסף האישי שלך – חישוב נומרולוגי מהיר וקליל בעברית.">
+		<meta property="og:image" content="URL_TO_GOLDEN_PREVIEW_IMAGE">
+		<meta property="og:type" content="website">
+		<meta property="og:locale" content="he_IL">
+	<style>
+			:root{
+				/* softer / pastel palette */
+				--bg:#FFFDF6; /* very light warm */
+				--gold:#EBD9A3; /* pastel gold */
+				--gold-deep:#E0C47A; /* deeper pastel */
+				--fire:#F0B37A; /* softer fire accent */
+				--text:#1F1E1E; /* charcoal */
+				--border:#F2E9D6; /* subtle borders */
+				--muted:#6b6b6b;
+				--card-radius:18px;
+				--touch-min:48px;
+			}
+
+		*{box-sizing:border-box}
+		html,body{height:100%;}
+		body{margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center;font-family:'Assistant',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;min-height:100svh}
+
+		main{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:calc(20px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) calc(20px + env(safe-area-inset-left));}
+
+		.card{width:100%;max-width:800px;background:linear-gradient(180deg,#ffffff, #fffaf2);border-radius:var(--card-radius);box-shadow:0 18px 40px rgba(31,30,30,0.06);padding:28px;border:1px solid var(--border);-webkit-tap-highlight-color:transparent}
+		.inner{display:grid;grid-template-columns:1fr;gap:18px}
+		h1{margin:0;font-size:clamp(1.2rem,3.8vw,1.6rem);text-align:right}
+		p.lead{margin:0;color:var(--muted);text-align:right;font-size:clamp(0.95rem,2.8vw,1.05rem)}
+		.field{display:flex;flex-direction:column;gap:8px}
+		label{font-weight:700;text-align:right}
+		input[type=date]{appearance:none;-webkit-appearance:none;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:1rem;background:white;color:var(--text);width:100%;min-height:calc(var(--touch-min));}
+
+		.controls{display:flex;gap:12px;margin-top:8px}
+		button{flex:1;padding:14px;border-radius:12px;border:0;font-weight:700;font-size:1rem;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:calc(var(--touch-min));}
+		.btn-primary{background:linear-gradient(180deg,var(--gold),var(--gold-deep));color:var(--text);box-shadow:0 8px 18px rgba(224,196,128,0.12);transition:transform .12s ease,box-shadow .12s ease}
+		.btn-primary:hover,.btn-primary:focus{background:linear-gradient(180deg,var(--fire),var(--gold-deep));outline:3px solid rgba(224,179,128,0.12);transform:translateY(-2px)}
+		.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+		.btn-ghost:hover,.btn-ghost:focus{background:rgba(224,179,128,0.06);border-color:var(--fire)}
+
+		.result{margin-top:8px;padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(212,175,55,0.08),rgba(201,151,0,0.04));text-align:center;font-weight:700}
+		.error-banner{display:none;padding:12px;border-radius:12px;background:#fff3e6;border:1px solid rgba(232,135,30,0.12);color:var(--text);font-weight:700;text-align:center}
+		.meta{margin-top:6px;color:var(--muted);font-size:0.92rem;text-align:center}
+
+		@media (max-width:520px){
+			.card{padding:20px}
+			.controls{flex-direction:column}
+			button{padding:14px}
+		}
+	</style>
+
+	<script>
+		// generate a base64 inline SVG favicon (gold circle with subtle fire accent gradient)
+		(function(){
+			const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'>
+				<defs>
+					<radialGradient id='g' cx='35%' cy='30%' r='80%'>
+						<stop offset='0%' stop-color='#D4AF37'/>
+						<stop offset='70%' stop-color='#C99700'/>
+						<stop offset='100%' stop-color='#E8871E' stop-opacity='0.95'/>
+					</radialGradient>
+				</defs>
+				<circle cx='32' cy='32' r='26' fill='url(#g)' />
+			</svg>`;
+
+			try{
+				const b64 = btoa(svg);
+				const link = document.createElement('link');
+				link.rel = 'icon';
+				link.href = 'data:image/svg+xml;base64,' + b64;
+				document.head.appendChild(link);
+			}catch(e){
+				// fallback: use utf-8 data url (URL-encoded)
+				const enc = encodeURIComponent(svg).replace(/'/g,'%27').replace(/\(/g,'%28').replace(/\)/g,'%29');
+				const link = document.createElement('link');
+				link.rel = 'icon';
+				link.href = 'data:image/svg+xml;utf8,' + enc;
+				document.head.appendChild(link);
+			}
+		})();
+				// link manifest for PWA
+				(function(){
+					const mlink = document.createElement('link');
+					mlink.rel = 'manifest';
+					mlink.href = 'manifest.json';
+					document.head.appendChild(mlink);
+				})();
+	</script>
+</head>
+<body>
+	<main>
+		<section class="card" aria-labelledby="title">
+			<div class="inner">
+				<div style="display:flex;flex-direction:column;gap:6px">
+					<h1 id="title">מחשבון קוד הכסף</h1>
+					<p class="lead">הכנס/י את תאריך הלידה כדי לחשב את קוד הכסף הנומרולוגי</p>
+				</div>
+
+				<div id="error" class="error-banner" role="alert" aria-live="assertive"></div>
+
+				<div class="field">
+					<label for="dob">תאריך לידה</label>
+					<input id="dob" type="date" lang="he-IL" aria-label="תאריך לידה" />
+				</div>
+
+				<div class="controls">
+					<button id="compute" class="btn-primary">חשב/י</button>
+					<button id="clear" class="btn-ghost">ניקוי</button>
+				</div>
+
+				<div id="output" class="result" role="status" aria-live="polite" style="display:none"></div>
+
+				<div class="meta">השתמש/י בבורר התאריכים של המכשיר או הזן תאריך בפורמט yyyy-mm-dd או dd/mm/yyyy</div>
+			</div>
+		</section>
+	</main>
+
+	<script>
+		function sumDigitsOnce(value){
+			const s = String(value).replace(/\D/g,'');
+			if(!s) return 0;
+			return s.split('').reduce((a,b)=>a + Number(b), 0);
+		}
+
+		function digitalRoot(n){
+			n = Math.abs(Number(n) || 0);
+			while(n > 9){ n = String(n).split('').reduce((a,b)=>a + Number(b), 0); }
+			return n;
+		}
+
+		const dob = document.getElementById('dob');
+		const compute = document.getElementById('compute');
+		const clearBtn = document.getElementById('clear');
+		const out = document.getElementById('output');
+		const err = document.getElementById('error');
+
+		function showError(text){ err.textContent = text; err.style.display = 'block'; out.style.display = 'none'; }
+		function clearError(){ err.textContent = ''; err.style.display = 'none'; }
+		function showOutput(d,m,y,total){ clearError(); out.textContent = `קוד הכסף שלך הוא: ${d} ${m} ${y} ${total}`; out.style.display = 'block'; }
+
+		function parseDateInput(val){
+			if(!val) return null;
+			if(dob.valueAsDate instanceof Date && !isNaN(dob.valueAsDate)){
+				const dt = dob.valueAsDate; return { day: dt.getDate(), month: dt.getMonth()+1, year: dt.getFullYear() };
+			}
+			const iso = /^\s*(\d{4})-(\d{1,2})-(\d{1,2})\s*$/;
+			let m = val.match(iso);
+			if(m) return { year: Number(m[1]), month: Number(m[2]), day: Number(m[3]) };
+			const parts = val.trim().split(/[\/\.\-\s]+/);
+			if(parts.length === 3){
+				if(parts[0].length === 4) return { year: Number(parts[0]), month: Number(parts[1]), day: Number(parts[2]) };
+				if(parts[2].length === 4) return { day: Number(parts[0]), month: Number(parts[1]), year: Number(parts[2]) };
+			}
+			const parsed = new Date(val);
+			if(!isNaN(parsed)) return { day: parsed.getDate(), month: parsed.getMonth()+1, year: parsed.getFullYear() };
+			return null;
+		}
+
+		compute.addEventListener('click', ()=>{
+			clearError(); out.style.display = 'none';
+			const raw = dob.value;
+			if(!raw){ showError('נא לבחור תאריך לידה.'); return; }
+
+			const parsed = parseDateInput(raw);
+			if(!parsed){ showError('לא ניתן לקרוא את התאריך. השתמש/י בבורר או הזן/י yyyy-mm-dd או dd/mm/yyyy.'); return; }
+
+			let {day, month, year} = parsed;
+			const check = new Date(year, month-1, day);
+			if(check.getFullYear() !== Number(year) || (check.getMonth()+1) !== Number(month) || check.getDate() !== Number(day)){
+				showError('תאריך לא חוקי. בדוק/י ונסה/י שוב.'); return;
+			}
+
+			const daySum = sumDigitsOnce(day);
+			const monthReduced = digitalRoot(sumDigitsOnce(month));
+			const yearReduced = digitalRoot(year);
+			const total = digitalRoot(daySum + monthReduced + yearReduced);
+
+			showOutput(daySum, monthReduced, yearReduced, total);
+		});
+
+		clearBtn.addEventListener('click', ()=>{ dob.value = ''; out.style.display = 'none'; clearError(); dob.focus(); });
+		dob.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') compute.click(); });
+	</script>
+		<script>
+			// Register a simple service worker to enable PWA install prompt in supporting browsers
+			if('serviceWorker' in navigator){
+				window.addEventListener('load', function(){
+					navigator.serviceWorker.register('sw.js').catch(function(err){
+						// fail silently
+						console.info('SW registration failed:', err);
+					});
+				});
+			}
+		</script>
+</body>
+</html>
+
