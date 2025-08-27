@@ -1,6 +1,8 @@
 
 <!doctype html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="		.card{position:relative;overflow:visible;width:100%;max-width:800px;background:linear-gradient(180deg,#ffffff,#fffdf6);border-radius:var(--card-radius);box-shadow:0 10px 22px rgba(31,30,30,0.04);padding:26px;border:1px solid var(--border);-webkit-tap-highlight-color:transparent;text-align:center}
+		.header-logo{display:none}
+		.logo-bottom{display:block;margin:18px auto 4px;width:clamp(160px,22vw,240px);height:auto;opacity:0.95}">
 <head>
 				<meta charset="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -22,7 +24,7 @@
 						--bg:#FBF9F6; /* warm stone background */
 						--gold:#F3EBD0; /* very soft gold */
 						--gold-deep:#E9DDB3; /* deeper soft gold */
-						--fire:#1E3A5F; /* classic navy accent (replaces reddish) */
+						--fire:#E5C992; /* light warm gold accent */
 						--text:#1F1E1E; /* charcoal */
 						--border:#F3EDE0; /* subtle borders */
 						--muted:#6a6a6a;
@@ -50,11 +52,11 @@
 		.controls{display:flex;gap:12px;margin-top:8px;justify-content:center}
 		button{flex:1;padding:14px;border-radius:12px;border:0;font-weight:700;font-size:1rem;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:calc(var(--touch-min));}
 		.btn-primary{background:linear-gradient(180deg,var(--gold),var(--gold-deep));color:var(--text);box-shadow:0 6px 16px rgba(201,171,110,0.08);transition:transform .12s ease,box-shadow .12s ease;border-radius:14px;padding:12px 16px}
-		.btn-primary:hover,.btn-primary:focus{background:linear-gradient(180deg,var(--fire),var(--gold-deep));outline:0;transform:translateY(-2px);box-shadow:0 10px 24px rgba(30,58,95,0.08)}
+		.btn-primary:hover,.btn-primary:focus{background:linear-gradient(180deg,var(--fire),var(--gold-deep));outline:0;transform:translateY(-2px);box-shadow:0 10px 24px rgba(229,201,146,0.12)}
 		.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
 		.btn-ghost:hover,.btn-ghost:focus{background:rgba(224,179,128,0.06);border-color:var(--fire)}
 
-		.btn-pay{background:linear-gradient(180deg,#fff3e0,#ffe6c9);color:var(--text);border:1px solid rgba(224,179,128,0.8)}
+		.btn-pay{background:linear-gradient(180deg,var(--gold),var(--gold-deep));color:var(--text);border:1px solid rgba(229,201,146,0.8)}
 		.btn-pay:hover{background:linear-gradient(180deg,var(--fire),var(--gold-deep))}
 		.result{margin-top:10px;padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(243,235,208,0.6),rgba(233,221,179,0.35));text-align:center;font-weight:700;color:var(--text);transition:opacity .32s cubic-bezier(.2,.9,.2,1),transform .36s cubic-bezier(.16,.84,.24,1);opacity:0;transform:translateY(8px);} 
 		.result.visible{opacity:1;transform:translateY(0)}
@@ -63,7 +65,7 @@
 		#paylink.show{opacity:1;transform:translateY(0)}
 		/* subtle logo motion */
 		.logo-bottom{transition:transform .5s ease,opacity .5s ease;opacity:.95}
-		.logo-bottom:hover{transform:translateY(-3px) scale(1.02);opacity:1}
+		.logo-bottom:hover{transform:translateY(-4px) scale(1.03);opacity:1}
 		.error-banner{display:none;padding:12px;border-radius:12px;background:#fff3e6;border:1px solid rgba(232,135,30,0.12);color:var(--text);font-weight:700;text-align:center}
 		.meta{margin-top:6px;color:var(--muted);font-size:0.92rem;text-align:center}
 		.interpretations{margin-top:12px;text-align:right}
