@@ -8,11 +8,11 @@
 	<meta name="theme-color" content="#F6F5F1">
 	<title>מחשבון קוד הכסף</title>
 	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
-	<meta name="description" content="גלי את קוד הכסף האישי שלך על פי תאריך הלידה – מחשבון נומרולוגי בעברית, חינמי ואלגנטי.">
+	<meta name="description" content="גלו את קוד הכסף האישי שלכם על פי תאריך הלידה – מחשבון נומרולוגי בעברית, חינמי ואלגנטי.">
 	<meta name="keywords" content="קוד הכסף, נומרולוגיה, מחשבון נומרולוגי, כסף, שפע, קוד אישי">
 	<meta property="og:title" content="מחשבון קוד הכסף">
-	<meta property="og:description" content="גלי את קוד הכסף האישי שלך – חישוב נומרולוגי מהיר וקליל בעברית.">
-	<meta property="og:image" content="URL_TO_GOLDEN_PREVIEW_IMAGE">
+	<meta property="og:description" content="גלו את קוד הכסף האישי שלכם – חישוב נומרולוגי מהיר וקליל בעברית.">
+	<meta property="og:image" content="Untitled (2000 x 150 px).png">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="he_IL">
 
@@ -451,7 +451,7 @@
 		<section class="card" aria-labelledby="title">
 			<div class="inner">
 				<h1 id="title">מחשבון קוד הכסף</h1>
-				<p class="lead">הכנס/י את תאריך הלידה כדי לחשב את קוד הכסף הנומרולוגי</p>
+				<p class="lead">הזינו את תאריך הלידה כדי לחשב את קוד הכסף הנומרולוגי</p>
 
 				<div id="error" class="error-banner" role="alert" aria-live="assertive"></div>
 
@@ -461,7 +461,7 @@
 				</div>
 
 				<div class="controls">
-					<button id="compute" class="btn-primary">חשב/י</button>
+					<button id="compute" class="btn-primary">חשבו</button>
 					<button id="clear" class="btn-ghost">ניקוי</button>
 				</div>
 
@@ -485,7 +485,7 @@
 					</dl>
 				</div>
 
-				<div class="meta">השתמש/י בבורר התאריכים של המכשיר או הזן תאריך בפורמט yyyy-mm-dd או dd/mm/yyyy</div>
+				<div class="meta">השתמשו בבורר התאריכים של המכשיר או הזינו תאריך בפורמט yyyy-mm-dd או dd/mm/yyyy</div>
 				<img src="Untitled (2000 x 150 px).png" alt="לוגו" class="logo-bottom" aria-hidden="true">
 			</div>
 		</section>
@@ -525,7 +525,7 @@
 
 		function showOutput(d, m, y, total) {
 			clearError();
-			out.innerHTML = `קוד הכסף שלך הוא: <span class="code-ltr">${d} ${m} ${y} ${total}</span>`;
+			out.innerHTML = `קוד הכסף שלכם הוא: <span class="code-ltr">${d} ${m} ${y} ${total}</span>`;
 			out.style.display = 'block';
 		}
 
@@ -559,14 +559,14 @@
 
 			const parsed = parseDateInput(raw);
 			if (!parsed) {
-				showError('לא ניתן לקרוא את התאריך. השתמש/י בבורר או הזן/י yyyy-mm-dd או dd/mm/yyyy.');
+				showError('לא ניתן לקרוא את התאריך. השתמשו בבורר או הזינו yyyy-mm-dd או dd/mm/yyyy.');
 				return;
 			}
 
 			let { day, month, year } = parsed;
 			const check = new Date(year, month - 1, day);
 			if (check.getFullYear() !== Number(year) || (check.getMonth() + 1) !== Number(month) || check.getDate() !== Number(day)) {
-				showError('תאריך לא חוקי. בדוק/י ונסה/י שוב.');
+				showError('תאריך לא חוקי. בדקו ונסו שוב.');
 				return;
 			}
 
