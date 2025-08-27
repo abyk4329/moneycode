@@ -494,28 +494,117 @@
 		}
 
 		.interpretations {
-			margin-top: 12px;
+			margin-top: 18px;
 			text-align: right;
 		}
 
-		.interpretations h3 {
-			margin: 8px 0 6px;
+		.interpretations-header {
 			text-align: center;
+			margin-bottom: 24px;
+			padding: 20px;
+			background: linear-gradient(145deg, var(--gold-light), var(--porcelain-mist));
+			border-radius: 16px;
+			border: 2px solid var(--warm-gold);
 		}
 
-		.interpretations dl {
-			display: grid;
-			grid-template-columns: repeat(1, 1fr);
-			gap: 8px;
-		}
-
-		.interpretations dt {
+		.interpretations-header h3 {
+			margin: 0 0 8px 0;
+			font-size: 1.4rem;
+			color: var(--deep-brown);
 			font-weight: 700;
 		}
 
-		.interpretations dd {
-			margin: 0 0 8px 0;
+		.interpretations-intro {
+			margin: 0;
 			color: var(--muted);
+			font-size: 1rem;
+			font-style: italic;
+		}
+
+		.number-interpretation {
+			display: none;
+			margin: 20px 0;
+			padding: 24px;
+			background: linear-gradient(145deg, var(--feather-white), var(--porcelain-mist));
+			border-radius: 18px;
+			border: 2px solid var(--gold-light);
+			box-shadow: 0 8px 20px rgba(164, 141, 120, 0.1);
+			animation: fadeInUp 0.6s ease-out;
+		}
+
+		.number-interpretation.active {
+			display: block;
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.number-header {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 20px;
+			padding-bottom: 12px;
+			border-bottom: 2px solid var(--gold-light);
+		}
+
+		.number-icon {
+			font-size: 2.5rem;
+			animation: pulse 2s ease-in-out infinite;
+		}
+
+		.number-header h4 {
+			margin: 0;
+			color: var(--warm-gold);
+			font-size: 1.3rem;
+			font-weight: 700;
+			text-shadow: 0 1px 2px rgba(164, 141, 120, 0.3);
+		}
+
+		.interpretation-content {
+			line-height: 1.6;
+		}
+
+		.strengths-section, .challenges-section {
+			margin: 16px 0;
+			padding: 16px;
+			border-radius: 12px;
+		}
+
+		.strengths-section {
+			background: linear-gradient(145deg, rgba(232, 210, 179, 0.1), rgba(244, 241, 234, 0.15));
+			border-right: 4px solid var(--warm-gold);
+		}
+
+		.challenges-section {
+			background: linear-gradient(145deg, rgba(164, 141, 120, 0.08), rgba(203, 185, 164, 0.12));
+			border-right: 4px solid var(--desert-rock);
+		}
+
+		.strengths-section h5, .challenges-section h5 {
+			margin: 0 0 12px 0;
+			font-size: 1.1rem;
+			font-weight: 600;
+			color: var(--text);
+		}
+
+		.interpretation-content p {
+			margin: 10px 0;
+			color: var(--text);
+			font-size: 0.95rem;
+		}
+
+		.interpretation-content strong {
+			color: var(--warm-gold);
+			font-weight: 700;
 		}
 
 		@media (max-width: 520px) {
@@ -629,12 +718,12 @@
 						<h3>רוצים לגלות את המשמעות המלאה?</h3>
 						<p class="payment-text">קבלו פירוש מפורט ואישי של קוד הכסף שלכם</p>
 						<div class="payment-price">
-							<span class="old-price">₪15</span>
-							<span class="new-price">רק ₪5</span>
-							<span class="discount-badge">67% הנחה!</span>
+							<span class="old-price">₪89</span>
+							<span class="new-price">₪36.9</span>
+							<span class="discount-badge">58% הנחה!</span>
 						</div>
 						<a id="paylink" class="btn-payment" href="#" role="button" aria-hidden="true">
-							🎯 קבלו את הפירוש המלא עכשיו
+							💎 קבלו את הפירוש המלא ב-₪36.9 בלבד
 						</a>
 						<div class="payment-features">
 							<div class="feature">✨ פירוש אישי ומקצועי</div>
@@ -645,18 +734,181 @@
 				</div>
 
 				<div class="interpretations" id="interpretations" style="display:none">
-					<h3>פירושי מספרים (1–9)</h3>
-					<dl>
-						<dt>1</dt><dd>ראשוניות, מנהיגות, יזמות.</dd>
-						<dt>2</dt><dd>שיתוף, רגישות, תמיכה.</dd>
-						<dt>3</dt><dd>יצירתיות, תקשורת, שמחה.</dd>
-						<dt>4</dt><dd>יסוד, יציבות, עבודה קשה.</dd>
-						<dt>5</dt><dd>חופש, שינוי, הרפתקאות.</dd>
-						<dt>6</dt><dd>אחריות, בית, שירות.</dd>
-						<dt>7</dt><dd>חכמה, פנימיות, רוחניות.</dd>
-						<dt>8</dt><dd>שפע, כוח כלכלי, ניצחון.</dd>
-						<dt>9</dt><dd>אוניברסליות, סיום, חמלה.</dd>
-					</dl>
+					<div class="interpretations-header">
+						<h3>🔮 הפירוש המלא של קוד הכסף שלכם</h3>
+						<p class="interpretations-intro">זוהי הדרכה מעמיקה ומותאמת אישית על פי הקוד הנומרולוגי שלכם</p>
+					</div>
+
+					<div class="number-interpretation" data-number="1">
+						<div class="number-header">
+							<span class="number-icon">👑</span>
+							<h4>מספר 1 – המנהיג הפיננסי</h4>
+						</div>
+						<div class="interpretation-content">
+							<div class="strengths-section">
+								<h5>💎 החוזקות והמתנות שלכם:</h5>
+								<p>אתם נולדתם להוביל! מספר 1 מעניק לכם כשרון טבעי למנהיגות בתחומי הקריירה והכספים. עם ניהול נבון והשקעות מחושבות, אתם יכולים לשגשג כלכלית בצורה יוצאת דופן.</p>
+								<p>יש לכם חשיבה מקורית ונכונות לנסות דרכים חדשות להרוויח כסף – תכונה שפותחת הזדמנויות כלכליות חדשניות. כשאתם בטוחים בעצמכם, המזל נוטה לצדכם ומסייע להגדיל את הונכם.</p>
+							</div>
+							<div class="challenges-section">
+								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
+								<p>היזהרו מסיכונים פיננסיים מיותרים ומהוצאות פזיזות. הביטחון הגבוה שלכם עלול להוביל לאימפולסיביות והשקעות מסוכנות.</p>
+								<p><strong>הטיפ הזהב:</strong> טפחו משמעת כלכלית – חסכו, השקיעו בחכמה והימנעו מ"התעשרות מהירה" כמו הימורים. עם שליטה עצמית וענווה, תגיעו לשפע כלכלי רב!</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="number-interpretation" data-number="2">
+						<div class="number-header">
+							<span class="number-icon">🧲</span>
+							<h4>מספר 2 – המגנט לכסף המאוזן</h4>
+						</div>
+						<div class="interpretation-content">
+							<div class="strengths-section">
+								<h5>💎 החוזקות והמתנות שלכם:</h5>
+								<p>אתם מושכים כסף בקלות! לעיתים נדמה שהזדמנויות כלכליות מגיעות אליכם ללא מאמץ מיוחד. הדיפלומטיה והאינטליגנציה הרגשית שלכם עוזרות לבנות קשרים מועילים ולשתף פעולה לטובת רווח משותף.</p>
+								<p>יכולת העבודה בצוות שלכם מצוינת, ושיתופי פעולה עסקיים פותחים דלתות לפרנסה ושפע.</p>
+							</div>
+							<div class="challenges-section">
+								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
+								<p>הרגשיות הגבוהה עלולה להפוך אתכם ל"מבזבזים רגשית" – ההוצאות משתנות בהתאם למצבי הרוח, והכנסותיכם עלולות להתנדנד.</p>
+								<p><strong>הטיפ הזהב:</strong> רכשו מיומנויות בניהול כספים ותכננו תקציב מאוזן. שלטו ברגשות בתחום הפיננסי והציבו גבולות ברורים. כך תהפכו את "המגנט לכסף" ליתרון יציב!</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="number-interpretation" data-number="3">
+						<div class="number-header">
+							<span class="number-icon">🎨</span>
+							<h4>מספר 3 – ההון היצירתי והצמיחה</h4>
+						</div>
+						<div class="interpretation-content">
+							<div class="strengths-section">
+								<h5>💎 החוזקות והמתנות שלכם:</h5>
+								<p>אתם ניחנים בכישרונות יצירתיים ותקשורתיים יוצאי דופן! יש באפשרותכם להרוויח כסף מתוך היצירתיות – באמנות, בידור, חדשנות עסקית או תחומים שבהם האישיות הקורנת שלכם בולטת.</p>
+								<p>כשאתם נותנים דרור לדמיון ולאמביציות, שפע כספי עושה את דרכו אליכם. הגישה הפרגמטית-יצירתית שלכם והמזל הטוב מקדמים אתכם בדרך חיובית למטרותיכם.</p>
+							</div>
+							<div class="challenges-section">
+								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
+								<p>שמרו על משמעת פיננסית! הנטייה להוצאות ספונטניות וחוסר יציבות בניהול הכסף עלולה לפגוע בכם. האופטימיות שלכם עלולה להוביל לפזרנות יתר.</p>
+								<p><strong>הטיפ הזהב:</strong> הימנעו מהשקעות לא מבוקרות ובנו רשת ביטחון כלכלית. אזנו בין הרוח היצירתית לבין אחריות פיננסית, ותוכלו לנצל את מזלכם לצמיחה מתמשכת!</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="number-interpretation" data-number="4">
+						<div class="number-header">
+							<span class="number-icon">🏗️</span>
+							<h4>מספר 4 – השותפות והיציבות הפיננסית</h4>
+						</div>
+						<div class="interpretation-content">
+							<div class="strengths-section">
+								<h5>💎 החוזקות והמתנות שלכם:</h5>
+								<p>אתם "עמודי התווך" של העולם הכלכלי! היציבות, עבודה קשה וגישה מציאותית לכסף מאפשרים לכם לבנות יסודות פיננסיים איתנים לאורך זמן.</p>
+								<p>אתם מחויבים לביטחון כלכלי ותמיד מחפשים דרכים להגדיל הכנסה. ההצלחה הכספית שלכם מגיעה לעיתים קרובות במסגרת שותפות יציבה – נישואים או ברית עסקית חזקה.</p>
+							</div>
+							<div class="challenges-section">
+								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
+								<p>התקדמותכם הכספית איטית והדרגתית. עליכם להפגין סבלנות ולהמשיך בעבודה עקבית גם ללא תוצאות מיידיות. הנטייה לעודף דאגה עלולה לעכב את השפע.</p>
+								<p><strong>הטיפ הזהב:</strong> למדו לסמוך על עצמכם ושמרו על גישה אופטימית. אזנו בין עבודה למנוחה ונצלו שותפויות טובות. ההתמדה תגמול לכם בביסוס עושר איתן!</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="number-interpretation" data-number="5">
+						<div class="number-header">
+							<span class="number-icon">🎯</span>
+							<h4>מספר 5 – ההרפתקן הממושמע</h4>
+						</div>
+						<div class="interpretation-content">
+							<div class="strengths-section">
+								<h5>💎 החוזקות והמתנות שלכם:</h5>
+								<p>אתם יזמים בנשמתכם! לא חוששים מרעיונות חדשים ומוכנים לקחת סיכונים מחושבים. החדשנות והחשיבה המהירה שלכם מביאות לפריצות דרך עסקיות ופיננסיות.</p>
+								<p>הכישורים המנטליים החדים מאפשרים לכם להגיב מהר לשינויים בשוק ולהתאים עצמכם. רבים מכם מצליחים לצבור הון דרך יוזמות ותכנון אסטרטגי.</p>
+							</div>
+							<div class="challenges-section">
+								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
+								<p>מצאו איזון בין אהבת החופש לבין הצורך בסדר בתחום הכספי. משיכה לריגושים עלולה להתבטא בחוסר יציבות פיננסית והתזוזזות בין השקעות ללא תכנון.</p>
+								<p><strong>הטיפ הזהב:</strong> הקפידו על משמעת, ארגון ותכנון קפדני. למדו לתכנן תקציב, הציבו סדרי עדיפויות ורסנו דחפים רגעיים. כך תיהנו מההרפתקנות בלי לאבד אחיזה במציאות!</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="number-interpretation" data-number="6">
+						<div class="number-header">
+							<span class="number-icon">🍀</span>
+							<h4>מספר 6 – הבריאות, ההרמוניה והשפע</h4>
+						</div>
+						<div class="interpretation-content">
+							<div class="strengths-section">
+								<h5>💎 החוזקות והמתנות שלכם:</h5>
+								<p>אתם נושאי מספר המזל הבולט ביותר בתחום הכספי! כסף פשוט "נדבק" אליכם, ואתם נהנים משפע חומרי כמעט ללא מאמץ. חלקכם זוכים לירושות או רווחים בהפתעה.</p>
+								<p>המתנה העיקרית שלכם היא שילוב העולם החומרי עם הרגשי/רוחני. אתם יוצרים ערך ועוזרים לזולת, ובכך משכים כסף דרך יצירת הרמוניה. הרווחה הכלכלית קשורה אצלכם לרווחה נפשית ופיזית.</p>
+							</div>
+							<div class="challenges-section">
+								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
+								<p>שמרו על איזון בין נתינה לאחריות כלכלית. אהבתכם לנוחות ותענוגות עלולה לגרום להוצאות מופרזות. תשוקתכם למותרות נפלאה, אך זהירות נדרשת.</p>
+								<p><strong>הטיפ הזהב:</strong> שלטו בדחפי ההוצאות וקבלו החלטות כלכליות באופן רציונלי. הרשו לעצמכם פינוקים קטנים ללא רגשות אשם. מצאו את שביל הזהב בין סיפוק צרכים לניהול אחראי!</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="number-interpretation" data-number="7">
+						<div class="number-header">
+							<span class="number-icon">🧠</span>
+							<h4>מספר 7 – האסטרטג החכם והאמיץ</h4>
+						</div>
+						<div class="interpretation-content">
+							<div class="strengths-section">
+								<h5>💎 החוזקות והמתנות שלכם:</h5>
+								<p>אתם חדשנים ופורצי דרך! המוח החד ואהבת הלמידה מאפשרים לכם ליצור הכנסה דרך ידע, מחקר וטכנולוגיה. אתם מתמחים בתחומים מורכבים עם יתרון למומחים.</p>
+								<p>יש לכם אמביציה וכושר התמדה מרשים. כשאתם מפתחים חזון כיצד להשיג כסף – במיוחד אם קשור לייעוד אישי – אתם מסוגלים להעפיל לגבהים כלכליים משמעותיים.</p>
+							</div>
+							<div class="challenges-section">
+								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
+								<p>היזהרו מהימורים ומנטייה להתמכרויות! התמכרויות מרחיקות את הכסף. בשל האופי המעמיק שלכם, עלולים להסס יתר על המידה ולהחמיץ הזדמנויות.</p>
+								<p><strong>הטיפ הזהב:</strong> מצאו את שביל האמצע – הימנעו מצעדים פזיזים אך אל תתנו לפחד לשתק אותכם. יישמו את החוכמה הטבעית בתכנון ואסטרטגיה נבונים. ההתמדה והלמידה יובילו להצלחה עצומה!</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="number-interpretation" data-number="8">
+						<div class="number-header">
+							<span class="number-icon">∞</span>
+							<h4>מספר 8 – סימן האינסוף הכלכלי</h4>
+						</div>
+						<div class="interpretation-content">
+							<div class="strengths-section">
+								<h5>💎 החוזקות והמתנות שלכם:</h5>
+								<p>אתם מקרינים אנרגיה של הצלחה עסקית ומנהיגות בעולם הכספים! מספר 8 מזוהה עם הצלחה פיננסית וכוח יותר מכל מספר אחר. יש לכם הכישורים להשיג הכנסות גבוהות במיוחד.</p>
+								<p>כשאתם מציבים מטרות שאפתניות ופועלים בצוותא עם שותפים, אתם בונים אימפריות כלכליות. הביטחון והאופטימיות שלכם הופכים אתכם ל"קמע" שמושך מזל וכסף!</p>
+							</div>
+							<div class="challenges-section">
+								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
+								<p>הטבע המחזורי של מספר 8 טומן סכנת תנודתיות. הכסף "זורם פנימה והחוצה" במחזוריות – אתם מרוויחים יפה אך גם מוציאים הרבה, ומתקשים לשמור כסף בצד.</p>
+								<p><strong>הטיפ הזהב:</strong> שמרו על איזון ויציבות פיננסית. הקפידו לחסוך, השקיעו בתבונה ותחזקו כרית ביטחון. טפחו הלך רוח חיובי והציבו גבולות ברורים בתקציב. כך תממשו את הפוטנציאל האדיר שלכם!</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="number-interpretation" data-number="9">
+						<div class="number-header">
+							<span class="number-icon">🌟</span>
+							<h4>מספר 9 – הנתינה והשפע המאוזנים</h4>
+						</div>
+						<div class="interpretation-content">
+							<div class="strengths-section">
+								<h5>💎 החוזקות והמתנות שלכם:</h5>
+								<p>יש לכם "מגע מידאס" – יכולת כמעט קסומה למשוך שפע! דווקא הגישה הלא-חומרנית שלכם הופכת ל"יד הזהב". ככל שאתם מתמקדים בעזרה לאחרים ובעשיית טוב, הכסף מוצא את דרכו אליכם באופן טבעי.</p>
+								<p>אתם עשויים לזכות במתנות, מענקים או מזל בלתי צפוי. ההתלהבות והאנרגיה הגבוהה שאתם מביאים מניבים תוצאות טובות. אתם מצליחים לשלב הגשמה רוחנית עם הצלחה חומרית.</p>
+							</div>
+							<div class="challenges-section">
+								<h5>⚠️ אתגרים ונקודות לתשומת לב:</h5>
+								<p>הטבע שלכם נוטה לקצוות – אידיאליסטים וחסכניים מאוד או נדיבים ופזרנים עד הקרבה עצמית. קיצוניות בהוצאות או בחיסכון תוביל להפסדים פיננסיים.</p>
+								<p><strong>הטיפ הזהב:</strong> הציבו גבולות לעצמכם ותכננו תקציב מאוזן. הימנעו מצבירה אובססיבית אך גם מפזרנות יתר. תרגלו קבלת החלטות מחושבת ושמרו על גישה חיובית. הכסף הוא אמצעי ולא מטרה!</p>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div class="meta">השתמשו בבורר התאריכים של המכשיר או הזינו תאריך בפורמט yyyy-mm-dd או dd/mm/yyyy</div>
@@ -751,12 +1003,21 @@
 
 			showOutput(daySum, monthReduced, yearReduced, total);
 
+			// Store the result for later use
+			sessionStorage.setItem('numerologyResult', total.toString());
+
 			// Show enhanced payment section with animation
 			const payBtn = document.getElementById('paylink');
 			const paymentSection = document.getElementById('payment-section');
 			out.classList.add('visible');
 			out.style.display = 'block';
 			payBtn.setAttribute('aria-hidden', 'false');
+			
+			// Show relevant interpretation if paid
+			const params = new URLSearchParams(window.location.search);
+			if (params.get('paid') === '1') {
+				showNumberInterpretation(total);
+			}
 			
 			// Show payment section after result appears
 			setTimeout(() => {
@@ -791,7 +1052,7 @@
 
 		paylink.addEventListener('click', (e) => {
 			e.preventDefault();
-			const href = `pay.html?return=${buildReturnUrl()}&amount=5`;
+			const href = `pay.html?return=${buildReturnUrl()}&amount=36.9`;
 			window.location.href = href;
 		});
 
@@ -800,6 +1061,31 @@
 		if (params.get('paid') === '1') {
 			document.getElementById('interpretations').style.display = 'block';
 			document.getElementById('interpretations').setAttribute('aria-hidden', 'false');
+			
+			// If we have a stored calculation result, show its interpretation
+			const storedResult = sessionStorage.getItem('numerologyResult');
+			if (storedResult) {
+				showNumberInterpretation(parseInt(storedResult));
+			}
+		}
+
+		// Function to show specific number interpretation
+		function showNumberInterpretation(number) {
+			const interpretationsDiv = document.getElementById('interpretations');
+			const allInterpretations = interpretationsDiv.querySelectorAll('.number-interpretation');
+			
+			// Hide all interpretations first
+			allInterpretations.forEach(interp => {
+				interp.classList.remove('active');
+			});
+			
+			// Show the specific number interpretation
+			const targetInterpretation = interpretationsDiv.querySelector(`[data-number="${number}"]`);
+			if (targetInterpretation) {
+				setTimeout(() => {
+					targetInterpretation.classList.add('active');
+				}, 200);
+			}
 		}
 	</script>
 
