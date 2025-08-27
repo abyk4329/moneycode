@@ -141,7 +141,7 @@
 
 																						<div id="output" class="result" role="status" aria-live="polite" style="display:none"></div>
 																						<div style="margin-top:10px;">
-																							<a id="paylink" class="btn-primary" href="#" role="button" aria-hidden="true" style="display:none;display:block;width:100%;text-decoration:none;">לקבלת פירוש</a>
+																							<a id="paylink" class="btn-primary" href="#" role="button" aria-hidden="true" style="display:block;width:100%;text-decoration:none;opacity:0;transform:translateY(6px)">לקבלת פירוש</a>
 																						</div>
 
 						<div class="interpretations" id="interpretations" style="display:none">
@@ -230,13 +230,17 @@
 			const total = digitalRoot(daySum + monthReduced + yearReduced);
 
 			showOutput(daySum, monthReduced, yearReduced, total);
-			// reveal pay button under the result after successful calculation
+			// reveal pay button under the result after successful calculation with animation
 			const payBtn = document.getElementById('paylink');
-			payBtn.style.display = 'block';
+			// ensure result animates
+			out.classList.add('visible');
+			out.style.display = 'block';
 			payBtn.setAttribute('aria-hidden','false');
+			// small timeout to allow CSS transition
+			setTimeout(()=> payBtn.classList.add('show'), 30);
 		});
 
-		clearBtn.addEventListener('click', ()=>{ dob.value = ''; out.style.display = 'none'; clearError(); dob.focus(); });
+	clearBtn.addEventListener('click', ()=>{ dob.value = ''; out.style.display = 'none'; out.classList.remove('visible'); const payBtn = document.getElementById('paylink'); payBtn.classList.remove('show'); payBtn.setAttribute('aria-hidden','true'); clearError(); dob.focus(); });
 		dob.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') compute.click(); });
 			// Payment flow: lead to pay.html with return URL
 			const paylink = document.getElementById('paylink');
