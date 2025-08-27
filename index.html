@@ -22,7 +22,7 @@
 						--bg:#FBF9F6; /* warm stone background */
 						--gold:#F3EBD0; /* very soft gold */
 						--gold-deep:#E9DDB3; /* deeper soft gold */
-						--fire:#F5D9B2; /* gentle accent */
+						--fire:#1E3A5F; /* classic navy accent (replaces reddish) */
 						--text:#1F1E1E; /* charcoal */
 						--border:#F3EDE0; /* subtle borders */
 						--muted:#6a6a6a;
@@ -38,7 +38,7 @@
 
 		.card{position:relative;overflow:visible;width:100%;max-width:800px;background:linear-gradient(180deg,#ffffff,#fffdf6);border-radius:var(--card-radius);box-shadow:0 10px 22px rgba(31,30,30,0.04);padding:26px;border:1px solid var(--border);-webkit-tap-highlight-color:transparent;text-align:center}
 		.header-logo{display:none}
-		.logo-bottom{display:block;margin:18px auto 4px;width:96px;height:auto;opacity:0.95}
+			.logo-bottom{display:block;margin:18px auto 4px;width:clamp(96px,14vw,160px);height:auto;opacity:0.95}
 		.card > .inner{position:relative;z-index:1}
 		.inner{display:grid;grid-template-columns:1fr;gap:18px}
 		h1{margin:0;font-size:clamp(1.2rem,3.8vw,1.6rem);text-align:center}
@@ -50,7 +50,7 @@
 		.controls{display:flex;gap:12px;margin-top:8px;justify-content:center}
 		button{flex:1;padding:14px;border-radius:12px;border:0;font-weight:700;font-size:1rem;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:calc(var(--touch-min));}
 		.btn-primary{background:linear-gradient(180deg,var(--gold),var(--gold-deep));color:var(--text);box-shadow:0 6px 16px rgba(201,171,110,0.08);transition:transform .12s ease,box-shadow .12s ease;border-radius:14px;padding:12px 16px}
-		.btn-primary:hover,.btn-primary:focus{background:linear-gradient(180deg,var(--fire),var(--gold-deep));outline:0;transform:translateY(-2px);box-shadow:0 10px 24px rgba(233,167,70,0.08)}
+		.btn-primary:hover,.btn-primary:focus{background:linear-gradient(180deg,var(--fire),var(--gold-deep));outline:0;transform:translateY(-2px);box-shadow:0 10px 24px rgba(30,58,95,0.08)}
 		.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
 		.btn-ghost:hover,.btn-ghost:focus{background:rgba(224,179,128,0.06);border-color:var(--fire)}
 
@@ -245,7 +245,8 @@
 			// Payment flow: lead to pay.html with return URL
 			const paylink = document.getElementById('paylink');
 			function buildReturnUrl(){
-				return encodeURIComponent(window.location.pathname + window.location.search);
+				// include origin to ensure pay.html redirects back to the full URL (works from any path)
+				return encodeURIComponent(window.location.origin + window.location.pathname + window.location.search);
 			}
 			paylink.addEventListener('click', (e)=>{
 				e.preventDefault();
