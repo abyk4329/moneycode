@@ -3,19 +3,14 @@
   "short_name": "money_code",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#FFF7E6",
-  "theme_color": "#FFF7E6",
+  "background_color": "#FAF9F6",
+  "theme_color": "#D4A574",
   "icons": [
     {
-      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='26' fill='%23D4AF37'/></svg>",
-      "sizes": "64x64",
-      "type": "image/svg+xml"
-    }
-    ,
-    {
-      "src": "Untitled (2000 x 150 px).png",
-      "sizes": "72x72",
-      "type": "image/png"
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><radialGradient id='bg' cx='50%' cy='30%' r='70%'><stop offset='0%' stop-color='%23E8D2B3'/><stop offset='70%' stop-color='%23D4A574'/><stop offset='100%' stop-color='%23A48D78'/></radialGradient></defs><circle cx='256' cy='256' r='240' fill='url(%23bg)' stroke='%23CBB9A4' stroke-width='8'/><text x='256' y='200' font-family='Arial' font-size='120' font-weight='bold' text-anchor='middle' fill='%23FAF9F6'>₪</text><text x='256' y='340' font-family='Arial' font-size='80' font-weight='600' text-anchor='middle' fill='%23FAF9F6'>קוד</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     },
     {
       "src": "Untitled (2000 x 150 px).png",
