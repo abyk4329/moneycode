@@ -681,6 +681,88 @@
 			font-weight: 700;
 		}
 
+		.main-description {
+			margin-bottom: 20px;
+			padding: 18px;
+			background: linear-gradient(145deg, rgba(212, 165, 116, 0.08), rgba(232, 210, 179, 0.12));
+			border-radius: 12px;
+			border-right: 4px solid var(--warm-gold);
+		}
+
+		.main-description p {
+			margin: 0;
+			font-size: 1rem;
+			line-height: 1.7;
+			color: var(--text);
+		}
+
+		.action-steps {
+			margin: 16px 0;
+			padding: 16px;
+			background: linear-gradient(145deg, rgba(164, 141, 120, 0.06), rgba(203, 185, 164, 0.1));
+			border-radius: 12px;
+			border-right: 4px solid var(--desert-rock);
+		}
+
+		.action-steps h5 {
+			margin: 0 0 12px 0;
+			font-size: 1.1rem;
+			font-weight: 600;
+			color: var(--text);
+		}
+
+		.action-steps ol {
+			margin: 0;
+			padding-right: 20px;
+		}
+
+		.action-steps li {
+			margin: 8px 0;
+			color: var(--text);
+			font-size: 0.95rem;
+			line-height: 1.5;
+		}
+
+		.interpretation-content ul {
+			margin: 0;
+			padding-right: 20px;
+		}
+
+		.interpretation-content li {
+			margin: 8px 0;
+			color: var(--text);
+			font-size: 0.95rem;
+			line-height: 1.5;
+		}
+
+		.number-button {
+			display: inline-block;
+			padding: 8px 12px;
+			margin: 0 4px;
+			background: linear-gradient(145deg, var(--warm-gold), #E8A52F);
+			color: var(--feather-white);
+			border-radius: 8px;
+			cursor: pointer;
+			font-weight: 700;
+			font-size: 1.1rem;
+			text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+			box-shadow: 0 4px 8px rgba(164, 141, 120, 0.3);
+			transition: all 0.3s ease;
+			border: 2px solid transparent;
+		}
+
+		.number-button:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 12px rgba(164, 141, 120, 0.4);
+			background: linear-gradient(145deg, #E8A52F, var(--warm-gold));
+			border-color: var(--feather-white);
+		}
+
+		.number-button:active {
+			transform: translateY(0);
+			box-shadow: 0 2px 4px rgba(164, 141, 120, 0.3);
+		}
+
 		@media (max-width: 520px) {
 			.card {
 				padding: 20px;
@@ -751,6 +833,17 @@
 					0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
 					50% { opacity: 0.7; transform: scale(1.1) rotate(2deg); }
 				}
+				
+				@keyframes slideIn {
+					from {
+						transform: translateX(100%);
+						opacity: 0;
+					}
+					to {
+						transform: translateX(0);
+						opacity: 1;
+					}
+				}
 			`;
 			document.head.appendChild(style);
 		})();
@@ -789,31 +882,32 @@
 				<div id="payment-section" style="margin-top:16px;display:none;">
 					<div class="payment-card">
 						<div class="payment-icon">💰</div>
-						<h3>רוצים לגלות את המשמעות המלאה?</h3>
-						<p class="payment-text">קבלו פירוש מפורט ואישי של קוד הכסף שלכם</p>
+						<h3>🌟 גלו את הסוד לעושר והצלחה כספית! 🌟</h3>
+						<p class="payment-text">קבלו פירוש נומרולוגי מקצועי ומפורט המותאם אישית לקוד הכסף הייחודי שלכם</p>
 						<div class="payment-price">
 							<span class="old-price">₪89</span>
 							<span class="new-price">₪36.9</span>
-							<span class="discount-badge">58% הנחה!</span>
+							<span class="discount-badge">מבצע מיוחד - 58% הנחה!</span>
 						</div>
 						<a id="paylink" class="btn-payment" href="#" role="button" aria-hidden="true">
-							💎 קבלו את הפירוש המלא ב-₪36.9 בלבד
+							✨ לחצו כאן לפירוש המלא - רק ₪36.9 💎
 						</a>
 						<div class="payment-features">
-							<div class="feature">✨ פירוש אישי ומקצועי</div>
-							<div class="feature">🔮 הדרכה לניצול הכוח הכספי</div>
-							<div class="feature">💎 טיפים להגדלת השפע</div>
+							<div class="feature">🔮 פירוש אישי ומקצועי מבוסס נומרולוגיה עתיקה</div>
+							<div class="feature">� הדרכה מעשית לניצול הכוח הכספי הטבעי שלכם</div>
+							<div class="feature">� טיפים וסטרטגיות מוכחות להגדלת השפע והעושר</div>
+							<div class="feature">🎯 תוכנית פעולה מותאמת אישית להצלחה כספית</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="interpretations" id="interpretations" style="display:none">
 					<div class="interpretations-header">
-						<h3>🔮 הפירוש המלא של קוד הכסף שלכם</h3>
-						<p class="interpretations-intro">זוהי הדרכה מעמיקה ומותאמת אישית על פי הקוד הנומרולוגי שלכם</p>
+						<h3>🔮 הפירוש המלא והמקצועי של קוד הכסף שלכם</h3>
+						<p class="interpretations-intro">זוהי הדרכה מעמיקה ומותאמת אישית על פי הקוד הנומרולוגי הייחודי שלכם - מבוססת על מחקר נומרולוגי מתקדם</p>
 						<div class="instructions">
 							<span class="instruction-icon">💡</span>
-							<strong>לחצו על כל מספר בקוד שלכם למעלה</strong> כדי לקבל פירוש מפורט ואישי!
+							<strong>לחצו על כל מספר בקוד שלכם למעלה</strong> כדי לקבל פירוש מפורט, אישי ומקצועי עם טיפים מעשיים להצלחה כספית!
 						</div>
 					</div>
 
@@ -822,7 +916,7 @@
 							<span class="number-icon">👑</span>
 							<h4>מספר 1 - המנהיג הטבעי</h4>
 						</div>
-						<div class="number-content">
+						<div class="interpretation-content">
 							<div class="main-description">
 								<p><strong>הכישרון הייחודי שלכם:</strong> מנהיגות טבעית ויכולת להוביל אחרים. אתם נולדתם להיות בעמדות מובילות ולקחת אחריות על תוצאות גדולות.</p>
 							</div>
@@ -1012,6 +1106,15 @@
 				</div>
 
 				<div class="meta">השתמשו בבורר התאריכים של המכשיר או הזינו תאריך בפורמט yyyy-mm-dd או dd/mm/yyyy</div>
+				
+				<div style="text-align: center; margin: 20px 0; padding: 20px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(230, 200, 104, 0.1)); border-radius: 15px; border: 2px solid var(--gold-light);">
+					<h4 style="color: var(--warm-gold); margin-bottom: 10px;">🎯 רוצים לראות איך זה עובד?</h4>
+					<p style="margin-bottom: 15px; color: var(--desert-rock);">נסו את הדמו - תחשבו קוד כסף עם תאריך לדוגמה ותראו את התהליך המלא</p>
+					<button onclick="runDemo()" style="background: linear-gradient(135deg, var(--warm-gold), var(--gold-light)); color: white; border: none; padding: 12px 24px; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+						🚀 הפעילו דמו מלא
+					</button>
+				</div>
+				
 				<img src="Untitled (2000 x 150 px).png" alt="לוגו" class="logo-bottom" aria-hidden="true">
 			</div>
 		</section>
@@ -1124,7 +1227,7 @@
 				return;
 			}
 
-			const daySum = sumDigitsOnce(day);
+			const daySum = digitalRoot(sumDigitsOnce(day));
 			const monthReduced = digitalRoot(sumDigitsOnce(month));
 			const yearReduced = digitalRoot(year);
 			const total = digitalRoot(daySum + monthReduced + yearReduced);
@@ -1223,6 +1326,52 @@
 					targetInterpretation.classList.add('active');
 				}, 200);
 			}
+		}
+
+		// Demo function
+		function runDemo() {
+			// Set a demo date (example: 15/07/1990)
+			dob.value = '1990-07-15';
+			
+			// Show a brief explanation
+			const demoAlert = document.createElement('div');
+			demoAlert.style.cssText = `
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				background: linear-gradient(135deg, var(--warm-gold), var(--gold-light));
+				color: white;
+				padding: 15px 20px;
+				border-radius: 12px;
+				box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+				z-index: 1000;
+				font-weight: 600;
+				animation: slideIn 0.5s ease-out;
+			`;
+			demoAlert.innerHTML = '🎯 דמו פעיל: מחשב קוד עבור 15/07/1990';
+			document.body.appendChild(demoAlert);
+			
+			// Auto-remove the alert after 3 seconds
+			setTimeout(() => {
+				demoAlert.remove();
+			}, 3000);
+			
+			// Trigger calculation
+			setTimeout(() => {
+				compute.click();
+			}, 1000);
+			
+			// After 3 seconds, show payment demo
+			setTimeout(() => {
+				const paymentSection = document.getElementById('payment-section');
+				if (paymentSection && paymentSection.style.display !== 'none') {
+					paymentSection.scrollIntoView({ behavior: 'smooth' });
+					
+					// Add glow effect to payment button
+					const payBtn = document.getElementById('paylink');
+					payBtn.style.animation = 'pulse 2s ease-in-out 3';
+				}
+			}, 4000);
 		}
 	</script>
 
