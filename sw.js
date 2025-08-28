@@ -1,28 +1,25 @@
-// Minimal service worker: cache the app shell (optional)
-const CACHE_NAME = 'money-code-v1';
-const FILES_TO_CACHE = [
-  '/',
-  '/index.html'
+// Service Worker for Numerology Calculator PWA (consolidated)
+const CACHE_NAME = 'numerology-calculator-v2';
+const urlsToCache = [
+  '/index.html',
+  '/pay.html',
+  '/manifest.json'
 ];
 
-self.addEventListener('install', (evt) => {
-  evt.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
   );
-  self.skipWaiting();
 });
 
-self.addEventListener('activate', (evt) => {
-  evt.waitUntil(
-    caches.keys().then((keyList) => Promise.all(
-      keyList.map((key) => { if (key !== CACHE_NAME) return caches.delete(key); })
-    ))
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => response || fetch(event.request))
   );
-  self.clients.claim();
 });
 
-self.addEventListener('fetch', (evt) => {
-  evt.respondWith(
-    caches.match(evt.request).then((resp) => resp || fetch(evt.request))
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((names) => Promise.all(names.map((n) => (n !== CACHE_NAME ? caches.delete(n) : undefined))))
   );
 });
